@@ -1,23 +1,13 @@
-# AXIS 1 Proposta Premium - WhatsApp Dinâmico
+# Proposta AXIS 1 com Cadastro Validado
 
-Sistema de proposta comercial da AXIS 1 com seletor de planos, botão de contrato e WhatsApp dinâmico.
+Versão com validação forte no navegador:
 
-## Como usar
+- CPF/CNPJ com validação real dos dígitos verificadores
+- Máscara automática para CPF, CNPJ, CEP e WhatsApp
+- E-mail em formato válido
+- Cidade/UF no padrão `Cidade/UF`
+- CEP com busca automática de endereço via ViaCEP quando houver internet
+- Sem campo de pagamento para o cliente
+- Envio do cadastro via WhatsApp para a AXIS 1
 
-1. Abra o `index.html`.
-2. Escolha o plano.
-3. Digite o nome do cliente, se quiser personalizar a mensagem.
-4. Clique em `Tirar dúvida no WhatsApp` ou `Falar no WhatsApp`.
-5. O WhatsApp será aberto com a mensagem pronta conforme o plano selecionado.
-
-## Link do contrato
-
-No campo `Link do gerador de contratos`, cole o link do GitHub Pages do sistema de contratos, por exemplo:
-
-https://seuusuario.github.io/axis1-contratos/
-
-Esse link fica salvo no navegador.
-
-## Observação
-
-O WhatsApp não envia a mensagem automaticamente. Ele abre a conversa com o texto pronto e o envio precisa ser confirmado manualmente.
+Observação: o WhatsApp abre com a mensagem preenchida, mas o cliente precisa clicar em enviar.

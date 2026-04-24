@@ -3,96 +3,79 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Proposta Comercial | AXIS 1</title>
+  <title>Proposta AXIS 1</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <main class="page-shell">
+  <main class="page">
     <section class="hero">
-      <div class="hero-content">
-        <div class="badge">AXIS 1 • Proposta Comercial</div>
-        <h1>Sua empresa pronta para atrair clientes todos os dias.</h1>
-        <p>Estratégia, conteúdo, posicionamento e tráfego pago em uma proposta clara, profissional e direta ao ponto.</p>
-        <div class="hero-actions">
-          <a href="#proposta" class="btn primary">Ver proposta</a>
-          <a id="whatsappTop" href="#" class="btn ghost" target="_blank" rel="noopener">Falar no WhatsApp</a>
-        </div>
-      </div>
-      <div class="hero-card">
-        <span>Plano selecionado</span>
-        <strong id="heroPlan">Estratégico</strong>
-        <p id="heroPrice">R$ 549,90/mês</p>
+      <div class="badge">AXIS 1 Marketing Estratégico</div>
+      <h1>Sua empresa pronta para atrair clientes todos os dias</h1>
+      <p>Escolha o plano ideal, preencha seu cadastro e nossa equipe entra em contato com os próximos passos.</p>
+    </section>
+
+    <section class="card">
+      <h2>Escolha seu plano</h2>
+      <p class="muted">Selecione abaixo para visualizar os detalhes.</p>
+      <div class="grid plans" id="plans"></div>
+      <div class="selected" id="selectedPlanBox" hidden>
+        <h3 id="selectedPlanName"></h3>
+        <p id="selectedPlanPrice"></p>
+        <ul id="selectedPlanItems"></ul>
+        <button id="choosePlanBtn" class="primary">Quero esse plano</button>
       </div>
     </section>
 
-    <section id="proposta" class="proposal-grid">
-      <aside class="panel controls">
-        <h2>Escolha o plano</h2>
-        <p>Selecione o plano para apresentar a proposta correta ao cliente.</p>
+    <section class="card" id="formSection" hidden>
+      <h2>Cadastro para contratação</h2>
+      <p class="muted">Preencha os dados abaixo para seguirmos com a elaboração do contrato de prestação de serviços.</p>
 
-        <label for="planSelect">Plano</label>
-        <select id="planSelect"></select>
-
-        <label for="clientName">Nome do cliente <small>(opcional)</small></label>
-        <input id="clientName" type="text" placeholder="Ex: Sua Empresa" />
-
-        <label for="contractUrl">Link do gerador de contratos</label>
-        <input id="contractUrl" type="url" placeholder="https://axis1-ai.github.io/axis1-contratos/" />
-        <small class="hint">Salvo automaticamente neste navegador. Use o link do GitHub Pages do gerador.</small>
-
-        <button id="saveConfig" class="btn secondary" type="button">Salvar link</button>
-      </aside>
-
-      <section class="panel proposal-card">
-        <div class="proposal-header">
-          <div>
-            <span class="kicker">Plano recomendado</span>
-            <h2 id="planName">Estratégico</h2>
-          </div>
-          <div class="price" id="planPrice">R$ 549,90<span>/mês</span></div>
+      <form id="clientForm" novalidate>
+        <div class="form-grid">
+          <label>Razão social / Nome completo
+            <input name="nome" required minlength="3" placeholder="Ex: Empresa XYZ LTDA" />
+            <span class="field-error" data-error-for="nome"></span>
+          </label>
+          <label>CPF ou CNPJ
+            <input name="documento" required inputmode="numeric" placeholder="Ex: 00.000.000/0001-00" />
+            <span class="field-error" data-error-for="documento"></span>
+          </label>
+          <label>CEP
+            <input name="cep" required inputmode="numeric" placeholder="Ex: 00000-000" />
+            <span class="field-error" data-error-for="cep"></span>
+          </label>
+          <label>Endereço completo
+            <input name="endereco" required placeholder="Rua, número, complemento" />
+            <span class="field-error" data-error-for="endereco"></span>
+          </label>
+          <label>Cidade/UF
+            <input name="cidade" required placeholder="Ex: Araraquara/SP" />
+            <span class="field-error" data-error-for="cidade"></span>
+          </label>
+          <label>WhatsApp
+            <input name="whatsapp" required inputmode="tel" placeholder="Ex: (16) 99999-9999" />
+            <span class="field-error" data-error-for="whatsapp"></span>
+          </label>
+          <label>E-mail
+            <input name="email" type="email" required placeholder="Ex: cliente@email.com" />
+            <span class="field-error" data-error-for="email"></span>
+          </label>
         </div>
 
-        <p class="plan-positioning" id="planPositioning"></p>
+        <label>Observações
+          <textarea name="observacoes" rows="4" placeholder="Ex: informações adicionais, dúvidas ou combinações comerciais"></textarea>
+        </label>
 
-        <div class="divider"></div>
-
-        <h3>O que está incluso</h3>
-        <ul id="featuresList" class="feature-list"></ul>
-
-        <div class="benefits">
-          <div>
-            <strong>Mais clareza</strong>
-            <span>Plano objetivo, sem enrolação.</span>
-          </div>
-          <div>
-            <strong>Mais presença</strong>
-            <span>Perfil profissional e conteúdo constante.</span>
-          </div>
-          <div>
-            <strong>Mais estratégia</strong>
-            <span>Ações pensadas para atrair clientes.</span>
-          </div>
+        <div class="actions">
+          <button type="submit" class="primary">Enviar cadastro pelo WhatsApp</button>
+          <button type="button" id="backBtn" class="secondary">Trocar plano</button>
         </div>
+      </form>
 
-        <div class="contract-note" id="contractNote"></div>
-
-        <div class="cta-box">
-          <h3>Pronto para começar?</h3>
-          <p>Ao clicar no botão abaixo, o contrato será aberto com o plano selecionado.</p>
-          <div class="cta-actions">
-            <a id="contractButton" class="btn primary large" href="#" target="_blank" rel="noopener">Quero contratar esse plano</a>
-            <a id="whatsappButton" class="btn ghost large" href="#" target="_blank" rel="noopener">Tirar dúvida no WhatsApp</a>
-          </div>
-        </div>
-      </section>
-    </section>
-
-    <section class="panel authority">
-      <div>
-        <span class="kicker">AXIS 1 Marketing Estratégico</span>
-        <h2>Conteúdo bonito chama atenção. Estratégia vende.</h2>
+      <div class="success" id="successBox" hidden>
+        <strong>Cadastro preparado com sucesso!</strong>
+        <p>O WhatsApp será aberto com os dados preenchidos. Basta enviar a mensagem para finalizar.</p>
       </div>
-      <p>Nosso foco é construir presença digital com posicionamento, constância e campanhas direcionadas para geração de oportunidades.</p>
     </section>
   </main>
 
