@@ -1,13 +1,12 @@
-# Proposta AXIS 1 com Cadastro Validado
+# Proposta AXIS 1 Integrada ao CRM
 
-Versão com validação forte no navegador:
+Versão segura para teste local.
 
-- CPF/CNPJ com validação real dos dígitos verificadores
-- Máscara automática para CPF, CNPJ, CEP e WhatsApp
-- E-mail em formato válido
-- Cidade/UF no padrão `Cidade/UF`
-- CEP com busca automática de endereço via ViaCEP quando houver internet
-- Sem campo de pagamento para o cliente
-- Envio do cadastro via WhatsApp para a AXIS 1
+Ela envia pelo WhatsApp:
+- dados do lead
+- plano escolhido
+- origem
+- link inteligente para importar no CRM
 
-Observação: o WhatsApp abre com a mensagem preenchida, mas o cliente precisa clicar em enviar.
+Próxima etapa:
+Atualizar o CRM para ler ?importLead= automaticamente.

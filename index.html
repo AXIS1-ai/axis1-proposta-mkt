@@ -3,82 +3,76 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Proposta AXIS 1</title>
+  <title>Proposta AXIS 1 — Integrada ao CRM</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <main class="page">
-    <section class="hero">
-      <div class="badge">AXIS 1 Marketing Estratégico</div>
-      <h1>Sua empresa pronta para atrair clientes todos os dias</h1>
-      <p>Escolha o plano ideal, preencha seu cadastro e nossa equipe entra em contato com os próximos passos.</p>
+  <header class="hero">
+    <div class="brand">AXIS 1</div>
+    <p class="eyebrow">Marketing Estratégico</p>
+    <h1>Você já recebe contatos. Mas não fecha?</h1>
+    <p class="subtitle">Estrutura comercial, conteúdo, tráfego e acompanhamento para sua empresa vender com mais clareza.</p>
+    <a href="#planos" class="btn btn-primary">Ver planos</a>
+  </header>
+
+  <main>
+    <section class="panel intro">
+      <h2>Escolha o plano ideal</h2>
+      <p>Selecione um plano, preencha seus dados e envie para a AXIS 1 pelo WhatsApp.</p>
     </section>
 
-    <section class="card">
-      <h2>Escolha seu plano</h2>
-      <p class="muted">Selecione abaixo para visualizar os detalhes.</p>
-      <div class="grid plans" id="plans"></div>
-      <div class="selected" id="selectedPlanBox" hidden>
-        <h3 id="selectedPlanName"></h3>
-        <p id="selectedPlanPrice"></p>
-        <ul id="selectedPlanItems"></ul>
-        <button id="choosePlanBtn" class="primary">Quero esse plano</button>
-      </div>
+    <section id="planos" class="plans">
+      <article class="plan-card active" data-plan="Essencial">
+        <span>Entrada estratégica</span>
+        <h3>Essencial</h3>
+        <p>R$ 399,90/mês</p>
+        <ul><li>8 posts mensais</li><li>Gestão do perfil</li><li>Tráfego pago</li><li>Relatórios simples</li></ul>
+      </article>
+      <article class="plan-card" data-plan="Estratégico">
+        <span>Mais escolhido</span>
+        <h3>Estratégico</h3>
+        <p>R$ 549,90/mês</p>
+        <ul><li>12 posts mensais</li><li>Gestão completa</li><li>Google ou LinkedIn</li><li>Reunião mensal</li></ul>
+      </article>
+      <article class="plan-card" data-plan="Autoridade">
+        <span>Crescimento</span>
+        <h3>Autoridade</h3>
+        <p>R$ 969,90/mês</p>
+        <ul><li>16+ conteúdos</li><li>Gestão Instagram</li><li>Posicionamento</li><li>Acompanhamento</li></ul>
+      </article>
+      <article class="plan-card" data-plan="Autoridade + Landing Page">
+        <span>Captação</span>
+        <h3>Autoridade + Landing Page</h3>
+        <p>R$ 1.119,99/mês</p>
+        <ul><li>Conteúdo + gestão</li><li>Landing pages</li><li>Captação</li><li>12 meses</li></ul>
+      </article>
+      <article class="plan-card" data-plan="Autoridade + Site">
+        <span>Completo</span>
+        <h3>Autoridade + Site</h3>
+        <p>R$ 1.219,90/mês</p>
+        <ul><li>Conteúdo + gestão</li><li>Site estratégico</li><li>Escala</li><li>12 meses</li></ul>
+      </article>
     </section>
 
-    <section class="card" id="formSection" hidden>
-      <h2>Cadastro para contratação</h2>
-      <p class="muted">Preencha os dados abaixo para seguirmos com a elaboração do contrato de prestação de serviços.</p>
+    <section class="panel form-panel">
+      <div class="selected"><span>Plano selecionado</span><strong id="selectedPlanLabel">Essencial</strong></div>
+      <h2>Preencha seus dados</h2>
+      <p class="help">Essas informações serão enviadas para a AXIS 1 pelo WhatsApp.</p>
 
-      <form id="clientForm" novalidate>
-        <div class="form-grid">
-          <label>Razão social / Nome completo
-            <input name="nome" required minlength="3" placeholder="Ex: Empresa XYZ LTDA" />
-            <span class="field-error" data-error-for="nome"></span>
-          </label>
-          <label>CPF ou CNPJ
-            <input name="documento" required inputmode="numeric" placeholder="Ex: 00.000.000/0001-00" />
-            <span class="field-error" data-error-for="documento"></span>
-          </label>
-          <label>CEP
-            <input name="cep" required inputmode="numeric" placeholder="Ex: 00000-000" />
-            <span class="field-error" data-error-for="cep"></span>
-          </label>
-          <label>Endereço completo
-            <input name="endereco" required placeholder="Rua, número, complemento" />
-            <span class="field-error" data-error-for="endereco"></span>
-          </label>
-          <label>Cidade/UF
-            <input name="cidade" required placeholder="Ex: Araraquara/SP" />
-            <span class="field-error" data-error-for="cidade"></span>
-          </label>
-          <label>WhatsApp
-            <input name="whatsapp" required inputmode="tel" placeholder="Ex: (16) 99999-9999" />
-            <span class="field-error" data-error-for="whatsapp"></span>
-          </label>
-          <label>E-mail
-            <input name="email" type="email" required placeholder="Ex: cliente@email.com" />
-            <span class="field-error" data-error-for="email"></span>
-          </label>
+      <form id="leadForm">
+        <div class="grid">
+          <label>Nome / Empresa*<input id="leadName" required placeholder="Ex: Clínica Exemplo" /></label>
+          <label>WhatsApp*<input id="leadPhone" required placeholder="Ex: (16) 99999-9999" /></label>
+          <label>E-mail<input id="leadEmail" type="email" placeholder="contato@email.com" /></label>
+          <label>CNPJ / CPF<input id="leadDocument" placeholder="00.000.000/0000-00" /></label>
         </div>
-
-        <label>Observações
-          <textarea name="observacoes" rows="4" placeholder="Ex: informações adicionais, dúvidas ou combinações comerciais"></textarea>
-        </label>
-
-        <div class="actions">
-          <button type="submit" class="primary">Enviar cadastro pelo WhatsApp</button>
-          <button type="button" id="backBtn" class="secondary">Trocar plano</button>
-        </div>
+        <button type="submit" class="btn btn-primary full">Quero esse plano</button>
       </form>
-
-      <div class="success" id="successBox" hidden>
-        <strong>Cadastro preparado com sucesso!</strong>
-        <p>O WhatsApp será aberto com os dados preenchidos. Basta enviar a mensagem para finalizar.</p>
-      </div>
+      <p id="successMessage" class="success hidden">Cadastro preparado com sucesso. Confira o WhatsApp e clique em enviar.</p>
     </section>
   </main>
 
+  <footer><strong>AXIS 1</strong><span>Where marketing strategy begins</span></footer>
   <script src="script.js"></script>
 </body>
 </html>
